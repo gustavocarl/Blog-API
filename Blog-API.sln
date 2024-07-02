@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog-API", "Blog-API\Blog-API.csproj", "{DE59E3D8-4071-41A4-AC30-89D7C7A7EF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog-API", "src\Blog-API.csproj", "{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DE59E3D8-4071-41A4-AC30-89D7C7A7EF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE59E3D8-4071-41A4-AC30-89D7C7A7EF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE59E3D8-4071-41A4-AC30-89D7C7A7EF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE59E3D8-4071-41A4-AC30-89D7C7A7EF87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

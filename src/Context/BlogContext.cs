@@ -61,5 +61,10 @@ public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(opti
             .HasForeignKey(c => c.PostId)
             .OnDelete(DeleteBehavior.NoAction);
 
+        modelBuilder.Entity<User>()
+       .Property(u => u.Role)
+       .HasConversion(
+           v => v.ToString(), 
+           v => (EnumUser)Enum.Parse(typeof(EnumUser), v));
     }
 }

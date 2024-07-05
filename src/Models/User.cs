@@ -1,6 +1,7 @@
 ﻿using Blog_API.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Blog_API.Models;
 
@@ -31,7 +32,8 @@ public class User : Base
     public string PasswordSalt { get; set; } = string.Empty!;
 
     [Required]
-    public string Role { get; set; } = string.Empty!;
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public EnumUser Role { get; set; } = EnumUser.Subscriber;
 
     public ICollection<Post> Posts { get; set; } = new List<Post>();
 

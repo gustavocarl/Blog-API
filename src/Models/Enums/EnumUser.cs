@@ -1,10 +1,12 @@
-﻿namespace Blog_API.Models.Enums;
+﻿using System.Text.Json.Serialization;
+
+namespace Blog_API.Models.Enums;
 
 public enum EnumUser
 {
     Admin,
-    Editor,
     Author,
+    Editor,
     Contribuitor,
     Subscriber
 }

@@ -26,16 +26,18 @@ public class User : Base
     public string UserName { get; set; } = string.Empty!;
 
     [Required(ErrorMessage = "Password Hash is required")]
+    [MinLength(8)]
     public string PasswordHash { get; set; } = string.Empty!;
 
     [Required(ErrorMessage = "Password Salt is required")]
+    [MinLength(8)]
     public string PasswordSalt { get; set; } = string.Empty!;
 
     [Required]
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public EnumUser Role { get; set; } = EnumUser.Subscriber;
 
-    public ICollection<Post> Posts { get; set; } = new List<Post>();
+    public ICollection<Post> Posts { get; set; } = [];
 
-    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+    public ICollection<Comment> Comments { get; set; } = [];
 }

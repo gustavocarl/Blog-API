@@ -9,9 +9,13 @@ public interface IUserService
 
     bool ValidatePassword(string passwordHash, string passwordSalt);
 
+    bool UserIsAdmin(Guid id);
+
     Task<List<User>> GetAllUsersAsync();
 
     Task<User?> GetUserByIdAsync(Guid id);
+
+    Task<User?> GetUserByUsernameAsync(string username);
 
     Task<User?> CreatedUserAsync(User user);
 

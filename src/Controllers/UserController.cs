@@ -2,7 +2,9 @@
 using Blog_API.Models;
 using Blog_API.Repositories.Interfaces;
 using Blog_API.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,13 +16,14 @@ namespace Blog_API.Controllers
     {
         private readonly IUserService _userService;
 
-        public UserController(IUserRepository userRepository,IUserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
 
         // GET: api/<UserController>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Get()
         {
             var user = await _userService.GetAllUsersAsync();
@@ -29,6 +32,7 @@ namespace Blog_API.Controllers
 
         // GET api/User/id/{id}
         [HttpGet("id/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var user = await _userService.GetUserByIdAsync(id);
@@ -40,21 +44,21 @@ namespace Blog_API.Controllers
         }
 
         // GET api/User/username/{username}
-/*        [HttpGet("username/{username}")]
+        [HttpGet("username/{username}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetByUsername(string username)
         {
-            var user = await _userService.GetByUsernameAsync(username);
+            var user = await _userService.GetUserByUsernameAsync(username);
 
             if (user == null)
                 return NotFound("User not found");
             return Ok(user);
         }
-*/
+
         // POST api/User
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] User user)
         {
-
             var createdUser = await _userService.CreatedUserAsync(user);
 
             if (createdUser == null)
@@ -67,8 +71,18 @@ namespace Blog_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(Guid id, [FromBody] User user)
         {
-            if (id != user.Id)
-                return BadRequest("Id mismatch");
+            var authenticatedUserId = User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
+
+            if (authenticatedUserId == null || !Guid.TryParse(authenticatedUserId, out var authUserId))
+                return Unauthorized("Invalid Token");
+
+            var userToUpdate = await _userService.GetUserByIdAsync(id);
+            
+            if (userToUpdate == null)
+                return NotFound("User not found");
+
+            if (authUserId != id && !User.IsInRole("Admin"))
+                return Forbid("You do not have permission to delete this user");
 
             var updatedUser = await _userService.UpdateUserAsync(user);
 
@@ -82,6 +96,14 @@ namespace Blog_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
+            var userToDelete = await _userService.GetUserByIdAsync(id);
+
+            if(userToDelete == null)
+                return NotFound("User not found");
+
+            if (!User.IsInRole("Admin"))
+                return Forbid("You do not have permission to delete this user");
+
             var deletedUser = await _userService.RemoveUserAsync(id);
 
             if (deletedUser == null)

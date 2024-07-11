@@ -1,15 +1,12 @@
-﻿using Blog_API.Context;
-using Blog_API.Models;
+﻿using Blog_API.Models;
 using Blog_API.Models.Enums;
 using Blog_API.Repositories.Interfaces;
 using Blog_API.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Blog_API.Services.Implementations;
 
 public class UserService : IUserService
 {
-
     private readonly IUserRepository _userRepository;
 
     public UserService(IUserRepository userRepository)
@@ -30,6 +27,13 @@ public class UserService : IUserService
         return false;
     }
 
+    public bool UserIsAdmin(Guid userId)
+    {
+        var user = GetUserByIdAsync(userId).Result;
+
+        return user != null && user.Role == EnumUser.Admin;
+    }
+
     public async Task<List<User>> GetAllUsersAsync()
     {
         return await _userRepository.GetAllAsync();
@@ -38,6 +42,11 @@ public class UserService : IUserService
     public async Task<User?> GetUserByIdAsync(Guid id)
     {
         return await _userRepository.GetByIdAsync(id);
+    }
+
+    public async Task<User?> GetUserByUsernameAsync(string username)
+    {
+        return await _userRepository.GetByUsernameAsync(username);
     }
 
     public async Task<User?> CreatedUserAsync(User user)
@@ -56,9 +65,9 @@ public class UserService : IUserService
         if (ValidateRole(user.Role.ToString()) == false)
             return null;
 
-        if(ValidatePassword(user.PasswordHash, user.PasswordSalt) == false)
+        if (ValidatePassword(user.PasswordHash, user.PasswordSalt) == false)
             return null;
-    
+
         return await _userRepository.UpdateUserAsync(user);
     }
 

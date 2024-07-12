@@ -71,18 +71,10 @@ namespace Blog_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(Guid id, [FromBody] User user)
         {
-            var authenticatedUserId = User.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value;
-
-            if (authenticatedUserId == null || !Guid.TryParse(authenticatedUserId, out var authUserId))
-                return Unauthorized("Invalid Token");
-
             var userToUpdate = await _userService.GetUserByIdAsync(id);
             
             if (userToUpdate == null)
                 return NotFound("User not found");
-
-            if (authUserId != id && !User.IsInRole("Admin"))
-                return Forbid("You do not have permission to delete this user");
 
             var updatedUser = await _userService.UpdateUserAsync(user);
 

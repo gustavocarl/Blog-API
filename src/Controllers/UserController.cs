@@ -94,15 +94,13 @@ namespace Blog_API.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
+        [Authorize (Roles = "Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var userToDelete = await _userService.GetUserByIdAsync(id);
 
             if(userToDelete == null)
                 return NotFound("User not found");
-
-            if (!User.IsInRole("Admin"))
-                return Forbid("You do not have permission to delete this user");
 
             var deletedUser = await _userService.RemoveUserAsync(id);
 

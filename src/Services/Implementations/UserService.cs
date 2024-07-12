@@ -1,9 +1,8 @@
 ﻿using Blog_API.Models;
 using Blog_API.Models.Enums;
-using Blog_API.Repositories.Interfaces;
-using Blog_API.Services.Interfaces;
+using Blog_API.Repositories.Implementation;
 
-namespace Blog_API.Services.Implementations;
+namespace Blog_API.Services.Interfaces;
 
 public class UserService : IUserService
 {

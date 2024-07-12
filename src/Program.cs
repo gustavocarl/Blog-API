@@ -1,7 +1,6 @@
 using Blog_API.Context;
 using Blog_API.Models.Enums;
 using Blog_API.Repositories.Implementation;
-using Blog_API.Repositories.Interfaces;
 using Blog_API.Services.Implementations;
 using Blog_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,6 +17,7 @@ builder.Services.AddDbContext<BlogContext>(options =>
 // Add services to the container.
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPostService, PostService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

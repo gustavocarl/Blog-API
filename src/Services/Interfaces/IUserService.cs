@@ -4,7 +4,6 @@ namespace Blog_API.Services.Interfaces;
 
 public interface IUserService
 {
-
     bool ValidateRole(string role);
 
     bool ValidatePassword(string passwordHash, string passwordSalt);

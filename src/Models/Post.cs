@@ -23,8 +23,8 @@ public class Post : Base
 
     public bool IsPublished { get; set; } = true;
 
-    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+    public ICollection<Comment> Comments { get; set; } = [];
 
-    public ICollection<PostTags> PostTags { get; set; } = new List<PostTags>();
+    public ICollection<PostTags> PostTags { get; set; } = [];
 
 }

@@ -1,19 +1,12 @@
 ﻿using Blog_API.Context;
 using Blog_API.Models;
-using Blog_API.Repositories.Implementation;
-using Blog_API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog_API.Repositories.Implementation;
 
-public class UserRepository : IUserRepository
+public class UserRepository(BlogContext context) : IUserRepository
 {
-    private readonly BlogContext _context;
-
-    public UserRepository(BlogContext context)
-    {
-        _context = context;
-    }
+    private readonly BlogContext _context = context;
 
     public async Task<List<User>> GetAllAsync()
     {

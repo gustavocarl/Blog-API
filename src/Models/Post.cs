@@ -19,8 +19,10 @@ public class Post : Base
     [Required(ErrorMessage = "Content is required")]
     public string Content { get; set; } = string.Empty!;
 
+    [Required]
     public DateTime PublicationDate { get; set; } = DateTime.Now;
 
+    [Required]
     public bool IsPublished { get; set; } = true;
 
     public ICollection<Comment> Comments { get; set; } = [];

@@ -4,14 +4,9 @@ using Blog_API.Repositories.Implementation;
 
 namespace Blog_API.Services.Interfaces;
 
-public class UserService : IUserService
+public class UserService(IUserRepository userRepository) : IUserService
 {
-    private readonly IUserRepository _userRepository;
-
-    public UserService(IUserRepository userRepository)
-    {
-        _userRepository = userRepository;
-    }
+    private readonly IUserRepository _userRepository = userRepository;
 
     public bool ValidateRole(string role)
     {

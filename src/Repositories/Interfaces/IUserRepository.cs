@@ -1,6 +1,6 @@
 ﻿using Blog_API.Models;
 
-namespace Blog_API.Repositories.Implementation;
+namespace Blog_API.Repositories.Interfaces;
 
 public interface IUserRepository
 {

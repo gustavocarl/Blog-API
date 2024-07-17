@@ -13,14 +13,14 @@ public class Comment : Base
     public DateTime PublicationDate { get; set; } = DateTime.Now;
 
     [Required]
-    public User User { get; set; } = null!;
-
-    [ForeignKey("UserId")]
     public Guid UserId { get; set; }
 
+    [ForeignKey("UserId")]
+    public User? User { get; set; }
+
     [Required]
-    public Post Post { get; set; } = null!;
+    public Guid PostId { get; set; }
 
     [ForeignKey("PostId")]
-    public Guid PostId { get; set; }
+    public Post? Post { get; set; }
 }

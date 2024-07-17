@@ -9,6 +9,7 @@ public class CreateCommentDto
     [StringLength(500)]
     public string Content { get; set; } = string.Empty!;
 
+    [Required]
     public DateTime PublicationDate { get; set; } = DateTime.Now;
 
     public Guid UserId { get; set; }

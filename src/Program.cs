@@ -21,10 +21,14 @@ builder.Services.AddDbContext<BlogContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<IPostTagsRepository, PostTagsRepository>();
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<IPostTagsService, PostTagsService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

@@ -10,6 +10,6 @@ public class Tag : Base
     [StringLength(50)]
     public string TagName { get; set; } = string.Empty!;
 
-    public ICollection<PostTags> PostTags { get; set; } = new List<PostTags>();
+    public ICollection<PostTags> PostTags { get; set; } = [];
 
 }

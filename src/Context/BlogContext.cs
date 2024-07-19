@@ -62,9 +62,9 @@ public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(opti
             .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<User>()
-       .Property(u => u.Role)
-       .HasConversion(
-           v => v.ToString(), 
-           v => (EnumUser)Enum.Parse(typeof(EnumUser), v));
+            .Property(u => u.Role)
+            .HasConversion(
+                v => v.ToString(),
+                v => (EnumUser)Enum.Parse(typeof(EnumUser), v));
     }
 }

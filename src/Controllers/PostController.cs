@@ -9,9 +9,10 @@ namespace Blog_API.Controllers
 {
     [Route("api/[controller]/v1")]
     [ApiController]
-    public class PostController(IPostService postService) : ControllerBase
+    public class PostController(IPostService postService, IPostTagsService postTagsService) : ControllerBase
     {
         private readonly IPostService _postService = postService;
+        private readonly IPostTagsService _postTagsService = postTagsService;
 
         // GET: api/<PostController>
         [HttpGet]
@@ -59,21 +60,30 @@ namespace Blog_API.Controllers
         // POST api/<PostController>
         [HttpPost]
         [Authorize(Roles = "Admin, Author ")]
-        public async Task<IActionResult> Post([FromBody] Post post)
+        public async Task<IActionResult> Post([FromBody] Post post, [FromQuery]List<Guid> tagIds)
         {
             var createPost = await _postService.CreatePostAsync(post);
 
-            if (createPost.UserId == null)
-                return NotFound("User not found");
+            if (createPost == null)
+                return BadRequest("Post not created.");
+
+            foreach(var tagId in tagIds)
+            {
+                var postTags = new PostTags
+                {
+                    PostId = createPost.Id,
+                    TagId = tagId
+                };
+                await  _postTagsService.CreatePostTagsAsync(postTags);
+            }
 
             return Ok(createPost);
-
         }
 
         // PUT api/<PostController>/5
         [HttpPut("{postId}")]
         [Authorize(Roles = "Admin, Author, Editor")]
-        public async Task<IActionResult> Put(Guid postId,[FromBody] Post post)
+        public async Task<IActionResult> Put(Guid postId, [FromBody] Post post)
         {
             var postToUpdate = await _postService.GetPostByIdAsync(postId);
 

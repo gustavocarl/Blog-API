@@ -5,16 +5,16 @@ namespace Blog_API.Models
 {
     public class PostTags
     {
-        [ForeignKey("PostId")]
+        [Required]
         public Guid PostId { get; set; }
 
-        [Required]
+        [ForeignKey("PostId")]
         public Post Post { get; set; } = null!;
 
-        [ForeignKey("TagId")]
+        [Required]
         public Guid TagId { get; set; }
 
-        [Required]
+        [ForeignKey("TagId")]
         public Tag Tag { get; set; } = null!;
     }
 }

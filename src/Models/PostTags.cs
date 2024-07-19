@@ -1,20 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Blog_API.Models
+namespace Blog_API.Models;
+
+[Table("PostTags")]
+public class PostTags
 {
-    public class PostTags
-    {
-        [Required]
-        public Guid PostId { get; set; }
+    [Required]
+    public Guid PostId { get; set; }
 
-        [ForeignKey("PostId")]
-        public Post Post { get; set; } = null!;
+    [ForeignKey("PostId")]
+    public Post Post { get; set; } = null!;
 
-        [Required]
-        public Guid TagId { get; set; }
+    [Required]
+    public Guid TagId { get; set; }
 
-        [ForeignKey("TagId")]
-        public Tag Tag { get; set; } = null!;
-    }
+    [ForeignKey("TagId")]
+    public Tag Tag { get; set; } = null!;
 }

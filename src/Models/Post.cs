@@ -28,5 +28,4 @@ public class Post : Base
     public ICollection<Comment> Comments { get; set; } = [];
 
     public ICollection<PostTags> PostTags { get; set; } = [];
-
 }

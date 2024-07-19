@@ -21,6 +21,6 @@ public class CreatePostDto
     [Required]
     public bool IsPublished { get; set; } = true;
 
- //   [Required]
-   // public List<Guid> TagId { get; set; } = [];
+    //   [Required]
+    // public List<Guid> TagId { get; set; } = [];
 }

@@ -11,7 +11,7 @@ public class Result<T>
 
     public bool IsFailure => Error != null;
 
-    protected Result (T value, string error)
+    protected Result(T value, string error)
     {
         Value = value;
         Error = error;

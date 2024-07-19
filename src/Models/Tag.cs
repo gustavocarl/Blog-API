@@ -11,5 +11,4 @@ public class Tag : Base
     public string TagName { get; set; } = string.Empty!;
 
     public ICollection<PostTags> PostTags { get; set; } = [];
-
 }

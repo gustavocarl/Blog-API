@@ -1,10 +1,7 @@
-﻿using Blog_API.Context;
-using Blog_API.Models;
-using Blog_API.Repositories.Implementation;
+﻿using Blog_API.Models;
 using Blog_API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -72,7 +69,7 @@ namespace Blog_API.Controllers
         public async Task<IActionResult> Put(Guid id, [FromBody] User user)
         {
             var userToUpdate = await _userService.GetUserByIdAsync(id);
-            
+
             if (userToUpdate == null)
                 return NotFound("User not found");
 
@@ -86,12 +83,12 @@ namespace Blog_API.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        [Authorize (Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var userToDelete = await _userService.GetUserByIdAsync(id);
 
-            if(userToDelete == null)
+            if (userToDelete == null)
                 return NotFound("User not found");
 
             var deletedUser = await _userService.RemoveUserAsync(id);

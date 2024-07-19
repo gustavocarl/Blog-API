@@ -7,7 +7,6 @@ namespace Blog_API.Repositories.Implementation;
 
 public class PostRepository(BlogContext context) : IPostRepository
 {
-
     private readonly BlogContext _context = context;
 
     public async Task<List<Post>> GetAllAsync()
@@ -42,7 +41,7 @@ public class PostRepository(BlogContext context) : IPostRepository
     {
         _context.Posts.Add(post);
         await _context.SaveChangesAsync();
-        return post;  
+        return post;
     }
 
     public async Task<Post?> UpdatePostAsync(Post post)
@@ -69,6 +68,5 @@ public class PostRepository(BlogContext context) : IPostRepository
         _context.Posts.Remove(postToDelete);
         await _context.SaveChangesAsync();
         return postToDelete;
-
     }
 }

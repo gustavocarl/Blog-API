@@ -60,21 +60,21 @@ namespace Blog_API.Controllers
         // POST api/<PostController>
         [HttpPost]
         [Authorize(Roles = "Admin, Author ")]
-        public async Task<IActionResult> Post([FromBody] Post post, [FromQuery]List<Guid> tagIds)
+        public async Task<IActionResult> Post([FromBody] Post post, [FromQuery] List<Guid> tagIds)
         {
             var createPost = await _postService.CreatePostAsync(post);
 
             if (createPost == null)
                 return BadRequest("Post not created.");
 
-            foreach(var tagId in tagIds)
+            foreach (var tagId in tagIds)
             {
                 var postTags = new PostTags
                 {
                     PostId = createPost.Id,
                     TagId = tagId
                 };
-                await  _postTagsService.CreatePostTagsAsync(postTags);
+                await _postTagsService.CreatePostTagsAsync(postTags);
             }
 
             return Ok(createPost);

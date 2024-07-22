@@ -1,6 +1,6 @@
-﻿using Blog_API.Context;
-using Blog_API.DTOs;
-using Blog_API.Models;
+﻿using PostCentral.Context;
+using PostCentral.DTOs;
+using PostCentral.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -10,7 +10,7 @@ using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Blog_API.Controllers
+namespace PostCentral.Controllers
 {
     [Route("api/[controller]/v1")]
     [ApiController]

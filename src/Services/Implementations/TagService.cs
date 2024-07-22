@@ -1,8 +1,8 @@
-﻿using Blog_API.Models;
-using Blog_API.Repositories.Interfaces;
-using Blog_API.Services.Interfaces;
+﻿using PostCentral.Models;
+using PostCentral.Repositories.Interfaces;
+using PostCentral.Services.Interfaces;
 
-namespace Blog_API.Services.Implementations;
+namespace PostCentral.Services.Implementations;
 
 public class TagService(ITagRepository tagRepository) : ITagService
 {

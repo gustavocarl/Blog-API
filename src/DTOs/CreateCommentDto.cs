@@ -1,7 +1,7 @@
 ﻿//Not in use yet
 using System.ComponentModel.DataAnnotations;
 
-namespace Blog_API.DTOs;
+namespace PostCentral.DTOs;
 
 public class CreateCommentDto
 {

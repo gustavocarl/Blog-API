@@ -1,9 +1,9 @@
-using Blog_API.Context;
-using Blog_API.Models.Enums;
-using Blog_API.Repositories.Implementation;
-using Blog_API.Repositories.Interfaces;
-using Blog_API.Services.Implementations;
-using Blog_API.Services.Interfaces;
+using PostCentral.Context;
+using PostCentral.Models.Enums;
+using PostCentral.Repositories.Implementation;
+using PostCentral.Repositories.Interfaces;
+using PostCentral.Services.Implementations;
+using PostCentral.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

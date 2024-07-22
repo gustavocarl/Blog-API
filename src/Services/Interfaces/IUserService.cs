@@ -1,6 +1,6 @@
-﻿using Blog_API.Models;
+﻿using PostCentral.Models;
 
-namespace Blog_API.Services.Interfaces;
+namespace PostCentral.Services.Interfaces;
 
 public interface IUserService
 {

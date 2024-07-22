@@ -1,6 +1,6 @@
-﻿using Blog_API.Models;
+﻿using PostCentral.Models;
 
-namespace Blog_API.Repositories.Interfaces;
+namespace PostCentral.Repositories.Interfaces;
 
 public interface ICommentRepository
 {

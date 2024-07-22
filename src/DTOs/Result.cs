@@ -1,5 +1,5 @@
 ﻿//Not in use yet
-namespace Blog_API.DTOs;
+namespace PostCentral.DTOs;
 
 public class Result<T>
 {

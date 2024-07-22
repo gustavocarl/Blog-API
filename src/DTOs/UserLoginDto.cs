@@ -1,3 +1,3 @@
-﻿namespace Blog_API.DTOs;
+﻿namespace PostCentral.DTOs;
 
 public record UserLoginDto(string Username, string Password);

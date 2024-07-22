@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog-API", "src\Blog-API.csproj", "{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostCentral", "src\PostCentral.csproj", "{6E3994B0-6E81-4DDE-B28D-82393E3C1CCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

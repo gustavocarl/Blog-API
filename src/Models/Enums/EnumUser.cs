@@ -1,4 +1,4 @@
-﻿namespace Blog_API.Models.Enums;
+﻿namespace PostCentral.Models.Enums;
 
 public enum EnumUser
 {

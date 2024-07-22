@@ -1,11 +1,11 @@
-﻿using Blog_API.Models;
-using Blog_API.Services.Interfaces;
+﻿using PostCentral.Models;
+using PostCentral.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Blog_API.Controllers
+namespace PostCentral.Controllers
 {
     [Route("api/[controller]/v1")]
     [ApiController]

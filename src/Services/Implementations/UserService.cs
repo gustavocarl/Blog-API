@@ -1,8 +1,8 @@
-﻿using Blog_API.Models;
-using Blog_API.Models.Enums;
-using Blog_API.Repositories.Interfaces;
+﻿using PostCentral.Models;
+using PostCentral.Models.Enums;
+using PostCentral.Repositories.Interfaces;
 
-namespace Blog_API.Services.Interfaces;
+namespace PostCentral.Services.Interfaces;
 
 public class UserService(IUserRepository userRepository) : IUserService
 {

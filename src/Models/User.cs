@@ -1,9 +1,9 @@
-﻿using Blog_API.Models.Enums;
+﻿using PostCentral.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Blog_API.Models;
+namespace PostCentral.Models;
 
 [Table("Users")]
 public class User : Base

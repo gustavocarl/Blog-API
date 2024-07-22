@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Blog_API.Models;
+namespace PostCentral.Models;
 
 [Table("Tags")]
 public class Tag : Base

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Blog_API.Models;
+namespace PostCentral.Models;
 
 public abstract class Base
 {

@@ -1,8 +1,8 @@
-﻿using Blog_API.Models;
-using Blog_API.Models.Enums;
+﻿using PostCentral.Models;
+using PostCentral.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog_API.Context;
+namespace PostCentral.Context;
 
 public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(options)
 {

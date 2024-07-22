@@ -1,9 +1,9 @@
-﻿using Blog_API.Context;
-using Blog_API.Models;
-using Blog_API.Repositories.Interfaces;
+﻿using PostCentral.Context;
+using PostCentral.Models;
+using PostCentral.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog_API.Repositories.Implementation;
+namespace PostCentral.Repositories.Implementation;
 
 public class UserRepository(BlogContext context) : IUserRepository
 {
